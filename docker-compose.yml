@@ -6,6 +6,8 @@ services:
     restart: always
     build: images/postgres
     image: modernproject/postgres
+    volumes:
+      - ./data:/var/lib/postgresql/data
 
   migration:
     build: 
