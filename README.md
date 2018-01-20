@@ -53,3 +53,10 @@ access the backend navigate to:
 
 Edits can now be made the files inside the `backend` and `frontend` directories.
 Hot loading is enabled, so changes will be seen immediately.
+
+Shutdown the servers with standard docker commands:
+
+```
+# Command
+docker-compose down
+```
