@@ -77,8 +77,11 @@ services:
     build: images/nginx
     ports:
       - "80:80"
+    depends_on:
+      - backend
+      - frontend
     volumes:
-      - ../backend/config/nginx/conf.d/modernproject.conf:/etc/nginx/conf.d/default.conf
+      - ./images/nginx/conf.d/modernproject.conf:/etc/nginx/conf.d/default.conf
       - ../backend/static:/www/static
 
   redis:
