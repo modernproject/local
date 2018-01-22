@@ -37,13 +37,12 @@ services:
       - DJANGO_READ_DOT_ENV_FILE=True
 
   backend:
-    restart: on-failure
+    restart: always
     build: 
       context: ../backend/
       dockerfile: /compose/local/Dockerfile
     image: modernproject/backend
     working_dir: /backend
-    # command: gunicorn config.wsgi:application -w 1 -b :8000
     command: python3 manage.py runserver 0.0.0.0:8000
     volumes:
       - ../backend:/backend
