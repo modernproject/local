@@ -4,7 +4,7 @@ services:
 
   postgres:
     build: images/postgres
-    image: modernproject/postgres
+    image: modernproject-local/postgres
     volumes:
       - ./data:/var/lib/postgresql/data
 
@@ -13,7 +13,7 @@ services:
     build: 
       context: ../backend/
       dockerfile: /compose/local/Dockerfile
-    image: modernproject/backend
+    image: modernproject-local/backend
     working_dir: /backend
     command: python3 manage.py migrate
     volumes:
@@ -28,7 +28,7 @@ services:
     build:
       context: ../backend/
       dockerfile: /compose/local/Dockerfile
-    image: modernproject/backend
+    image: modernproject-local/backend
     working_dir: /backend
     command: python3 manage.py collectstatic --no-input
     volumes:
@@ -41,7 +41,7 @@ services:
     build: 
       context: ../backend/
       dockerfile: /compose/local/Dockerfile
-    image: modernproject/backend
+    image: modernproject-local/backend
     working_dir: /backend
     command: python3 manage.py runserver 0.0.0.0:8000
     volumes:
@@ -62,7 +62,7 @@ services:
       context: ../fontend/
       dockerfile: /compose/local/Dockerfile
     build: ../frontend/compose/local
-    image: modernproject/frontend
+    image: modernproject-local/frontend
     user: node
     command: yarn start --host 0.0.0.0
     working_dir: /frontend
