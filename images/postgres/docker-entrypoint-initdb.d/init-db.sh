@@ -2,7 +2,7 @@
 set -e
 
 psql -v ON_ERROR_STOP=1 --username postgres <<-EOSQL
-    CREATE DATABASE skeleton;
+    CREATE DATABASE modernproject;
 
     CREATE USER django;
     CREATE USER root;
@@ -10,5 +10,5 @@ psql -v ON_ERROR_STOP=1 --username postgres <<-EOSQL
     ALTER USER django CREATEDB;
     ALTER USER root CREATEDB;
 
-    GRANT ALL PRIVILEGES ON DATABASE skeleton TO django;
+    GRANT ALL PRIVILEGES ON DATABASE modernproject TO django;
 EOSQL
